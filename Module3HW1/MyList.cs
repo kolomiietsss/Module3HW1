@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Module3HW1
 {
-    internal class MyList<T>
+    internal class MyList<T> : IEnumerable
     {
         private const int DoubleSize = 2;
         private T[] _data;
@@ -35,6 +35,8 @@ namespace Module3HW1
         {
             get { return _capacity; }
         }
+
+        public IEnumerator GetEnumerator() => _data.GetEnumerator();
 
         // Add додавання нового елементу в список
         public void Add(T newElement)
@@ -111,7 +113,6 @@ namespace Module3HW1
             Array.Sort(_data, comparer);
         }
 
-        public IEnumerator GetEnumerator() => _data.GetEnumerator();
         private void Resize()
         {
             T[] resized = new T[_capacity * DoubleSize];

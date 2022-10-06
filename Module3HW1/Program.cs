@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// using System.Collections.Generic;
 namespace Module3HW1
 {
     internal class Program
@@ -27,6 +26,12 @@ namespace Module3HW1
             {
                 Console.WriteLine(item);
             }
+
+            Console.WriteLine("-------------------------");
+
+            // Person
+            var personList = new MyList<Person>() { new Person("P1", 20), new Person("P2", 18), new Person("P3", 30) };
+            personList.Sort(new PersonCompaper());
         }
     }
 }
